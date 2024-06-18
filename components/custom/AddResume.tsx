@@ -11,9 +11,12 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Button } from '../ui/button'
+
 import { v4 as uuidv4 } from 'uuid';
 import { useUser } from '@clerk/clerk-react';
 import { createResume } from '@/lib/actions/resume.actions';
+import { Toaster } from "@/components/ui/sonner"
+import { toast } from 'sonner'
 
 
 const AddResume = () => {
@@ -23,14 +26,19 @@ const AddResume = () => {
 
   const onCreate = async  ()=>{
     const uuid =  await uuidv4();
-    const data = ({
+    const createdatString = new Date().toISOString();
+    const data = {
       id: uuid,
       title: resumeTitle,
-      createdby:user?.fullName,
-      createdat:new Date().toISOString(),
-    })
+      createdby: user?.fullName,
+      createdat: new Date(createdatString), 
+    }
     console.log(data);
-    
+    await createResume(data).then((res)=>{
+      console.log(res);
+      console.log("Resume Created Successfullys");
+      toast("Event has been created.")
+    })
   }
   return (
     <div>

@@ -1,0 +1,1 @@
+ALTER TABLE "Resume" ALTER COLUMN "createdby" DROP NOT NULL;

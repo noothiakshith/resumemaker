@@ -15,6 +15,20 @@
       "when": 1718643645760,
       "tag": "0001_messy_marauders",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1718718024561,
+      "tag": "0002_sweet_peter_parker",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1718718130527,
+      "tag": "0003_long_wilson_fisk",
+      "breakpoints": true
     }
   ]
 }

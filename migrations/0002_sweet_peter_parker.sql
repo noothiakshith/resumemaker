@@ -1,0 +1,1 @@
+ALTER TABLE "Resume" ALTER COLUMN "user_id" DROP NOT NULL;

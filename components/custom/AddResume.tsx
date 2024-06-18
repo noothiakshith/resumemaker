@@ -17,12 +17,14 @@ import { useUser } from '@clerk/clerk-react';
 import { createResume } from '@/lib/actions/resume.actions';
 import { Toaster } from "@/components/ui/sonner"
 import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
 
 
 const AddResume = () => {
   const {user} = useUser();
   const[openDialog,setopenDialog]=React.useState(false);
   const [resumeTitle, setResumeTitle] = useState('');
+  const router = useRouter();
 
   const onCreate = async  ()=>{
     const uuid =  await uuidv4();
@@ -37,7 +39,7 @@ const AddResume = () => {
     await createResume(data).then((res)=>{
       console.log(res);
       console.log("Resume Created Successfullys");
-      toast("Event has been created.")
+      router.push('/dashboard/resume/'+data.id+'/edit');
     })
   }
   return (

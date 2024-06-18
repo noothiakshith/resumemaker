@@ -3,11 +3,12 @@ import AddResume from '@/components/custom/AddResume';
 import React, { useEffect, useState } from 'react';
 import { getResume } from '@/lib/actions/resume.actions'; 
 import ResumeCardItem from '@/components/custom/ResumeCardItem';
+import { useRouter } from 'next/navigation';
 
 
 const Dashboard = () => {
   const [resumeList, setResumeList] = useState<{ id: string; title: string; user_id: number | null; createdby: string | null; createdat: Date; }[]>([]);
-
+  const router = useRouter();
   useEffect(() => {
     const fetchData = async () => {
       try {

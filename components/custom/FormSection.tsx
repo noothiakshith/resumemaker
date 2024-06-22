@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import PersonalDetail from './forms/PersonalDetail';
 import { Button } from '../ui/button';
 import { ArrowLeft, ArrowRight, LayoutGrid } from 'lucide-react';
-
+import SummaryDetails from './forms/SummeryDetails';
 const FormSection = () => {
   const [activeFormIndex, setActiveFormIndex] = useState(1);
 
@@ -17,6 +17,7 @@ const FormSection = () => {
         </div>
       </div>
       {activeFormIndex === 1 && <PersonalDetail />}
+      {activeFormIndex === 2 && <SummaryDetails/>}
     </div>
   );
 };

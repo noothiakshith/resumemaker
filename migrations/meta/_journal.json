@@ -29,6 +29,48 @@
       "when": 1718718130527,
       "tag": "0003_long_wilson_fisk",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1718808390191,
+      "tag": "0004_lying_marrow",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1718808584501,
+      "tag": "0005_flippant_aaron_stack",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1718808711174,
+      "tag": "0006_slow_hellion",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1718810542850,
+      "tag": "0007_dry_randall_flagg",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1718810688281,
+      "tag": "0008_common_mikhail_rasputin",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1718812433486,
+      "tag": "0009_demonic_menace",
+      "breakpoints": true
     }
   ]
 }

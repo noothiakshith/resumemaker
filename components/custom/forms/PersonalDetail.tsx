@@ -1,14 +1,17 @@
-"use client"
 import React, { useContext, useState } from 'react';
 import { ResumeInforContext } from '@/app/context/ResumeInforContext';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { LoaderCircle } from 'lucide-react';
+import { createMatter } from '@/lib/actions/resumematter.actions';
+import { useParams } from 'next/navigation';
+import { toast } from "sonner"
 
 const PersonalDetail = () => {
   const { resumeInfo, setResumeInfo } = useContext(ResumeInforContext);
   const [loading, setLoading] = useState(false);
+  const params = useParams(); // Retrieve params from Next.js router
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -18,10 +21,22 @@ const PersonalDetail = () => {
     });
   };
 
-  const onSave = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSave = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(resumeInfo); // Check the updated resumeInfo state after form submission
-    // Add logic to save or process the form data
+    setLoading(true);
+    try {
+      const dataToSave = {
+        ...resumeInfo,
+    };
+      const result = await createMatter(dataToSave); // Call server action with resumeInfo and id
+      console.log('Server response:', result);
+      toast("Event has been created.")
+    } catch (error) {
+      console.error('Error saving data:', error);
+      // Handle error state or display error message to user
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -48,11 +63,11 @@ const PersonalDetail = () => {
           </div>
           <div className="col-span-2">
             <Label className='text-sm'>Phone</Label>
-            <Input name="phone" onChange={handleInputChange} required />
+            <Input name="phone"  onChange={handleInputChange} required />
           </div>
           <div className="col-span-2">
             <Label className='text-sm'>Email</Label>
-            <Input name="email" onChange={handleInputChange} required />
+            <Input name="email"  onChange={handleInputChange} required />
           </div>
         </div>
         <div className='mt-3 flex justify-end'>
